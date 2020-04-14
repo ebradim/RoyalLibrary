@@ -2,7 +2,13 @@
 
 Some extensions methods like the ones in Ruby .each .map and more
 
+
 **netstandard2.1** targeted
+
+Package available in **Nuget**
+
+https://www.nuget.org/packages/RoyalLibrary/
+
 
 ## Examples
 
