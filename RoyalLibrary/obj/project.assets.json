@@ -180,24 +180,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/rreyes/.nuget/packages/": {}
+    "C:\\Users\\rodry\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/rreyes/workspace/dotnet/RoyalLibrary/RoyalLibrary/RoyalLibrary.csproj",
+      "projectUniqueName": "F:\\workspace\\dotnet\\RoyalLibrary\\RoyalLibrary\\RoyalLibrary.csproj",
       "projectName": "RoyalLibrary",
-      "projectPath": "/Users/rreyes/workspace/dotnet/RoyalLibrary/RoyalLibrary/RoyalLibrary.csproj",
-      "packagesPath": "/Users/rreyes/.nuget/packages/",
-      "outputPath": "/Users/rreyes/workspace/dotnet/RoyalLibrary/RoyalLibrary/obj/",
+      "projectPath": "F:\\workspace\\dotnet\\RoyalLibrary\\RoyalLibrary\\RoyalLibrary.csproj",
+      "packagesPath": "C:\\Users\\rodry\\.nuget\\packages\\",
+      "outputPath": "F:\\workspace\\dotnet\\RoyalLibrary\\RoyalLibrary\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "/Users/rreyes/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\rodry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -231,7 +237,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
