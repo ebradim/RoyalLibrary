@@ -43,3 +43,10 @@ myArray.Map(item => item * 2).Each(item => Debug.Log($"Using the strength double
   Debug.Log($"This is {theVar}");
 });
 ```
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/ByteDecoder/RoyalLibrary.
+
+
+Copyright (c) 2020 [Rodrigo Reyes](https://twitter.com/bytedecoder) released under the MIT license
