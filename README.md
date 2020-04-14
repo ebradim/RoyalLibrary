@@ -2,6 +2,8 @@
 
 Some extensions methods like the ones in Ruby .each .map and more
 
+**netstandard2.1** targeted
+
 ## Examples
 
 ```
