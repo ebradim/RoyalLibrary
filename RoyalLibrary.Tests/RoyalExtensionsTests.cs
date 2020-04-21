@@ -30,5 +30,18 @@ namespace RoyalLibrary.Tests
       // Assert
       Assert.Equal(new int[] { 2, 4, 6, 8, 10, 344, 348 }, output);
     }
+
+    [Fact]
+    public void OddsReturnsValidOutput()
+    {
+      // Arrange 
+      var input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
+
+      // Act
+      var output = input.Odds();
+
+      // Assert
+      Assert.Equal(new int[] { 1, 3, 5, 7, 567 }, output);
+    }
   }
 }
