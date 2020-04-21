@@ -5,6 +5,8 @@ namespace RoyalLibrary.Tests
 {
   public class RoyalExtensionsTests
   {
+    private static readonly int[] input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
+
     [Fact]
     public void TimesExecutesFiveTimes()
     {
@@ -22,7 +24,6 @@ namespace RoyalLibrary.Tests
     public void EvensReturnsValidOutput()
     {
       // Arrange 
-      var input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
 
       // Act
       var output = input.Evens();
@@ -35,13 +36,24 @@ namespace RoyalLibrary.Tests
     public void OddsReturnsValidOutput()
     {
       // Arrange 
-      var input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
 
       // Act
       var output = input.Odds();
 
       // Assert
       Assert.Equal(new int[] { 1, 3, 5, 7, 567 }, output);
+    }
+
+    [Fact]
+    public void TotalAllEvensReturnsValidOutput()
+    {
+      // Arrange
+
+      // Act
+      var output = input.TotalAllEvens();
+
+      // Assert
+      Assert.Equal(722, output);
     }
   }
 }
