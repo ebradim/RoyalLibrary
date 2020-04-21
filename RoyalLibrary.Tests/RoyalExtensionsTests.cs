@@ -55,5 +55,18 @@ namespace RoyalLibrary.Tests
       // Assert
       Assert.Equal(722, output);
     }
+
+    
+    [Fact]
+    public void TotalAllOddsReturnsValidOutput()
+    {
+      // Arrange
+
+      // Act
+      var output = input.TotalAllOdds();
+
+      // Assert
+      Assert.Equal(583, output);
+    }
   }
 }
