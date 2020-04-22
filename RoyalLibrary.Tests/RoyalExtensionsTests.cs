@@ -1,4 +1,5 @@
-using System;
+using System.Linq;
+using RoyalLibrary.Tests.Fakes;
 using Xunit;
 
 namespace RoyalLibrary.Tests
@@ -56,7 +57,7 @@ namespace RoyalLibrary.Tests
       Assert.Equal(722, output);
     }
 
-    
+
     [Fact]
     public void TotalAllOddsReturnsValidOutput()
     {
@@ -67,6 +68,24 @@ namespace RoyalLibrary.Tests
 
       // Assert
       Assert.Equal(583, output);
+    }
+
+    [Fact]
+    public void EachReturnsValidOutput()
+    {
+      // Arrange
+      var words = new string[] { "Soft Pastel", "Charcoral", "Sephia", "Oil", "Graphite" };
+      var fakerLogger = new FakeLogger();
+
+      // Act
+      words.Each(word =>
+      {
+        fakerLogger.Log($"Drawing material/technique is {word}.");
+      });
+
+      // Assert
+      Assert.Equal(5, fakerLogger.Messages.Count);
+      Assert.Contains(fakerLogger.Messages, word => word.Contains("Sephia"));
     }
   }
 }
