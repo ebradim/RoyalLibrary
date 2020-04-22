@@ -87,5 +87,24 @@ namespace RoyalLibrary.Tests
       Assert.Equal(5, fakerLogger.Messages.Count);
       Assert.Contains(fakerLogger.Messages, word => word.Contains("Sephia"));
     }
+
+    [Fact]
+    public void EachWithIndexReturnsValidOutput()
+    {
+      // Arrange
+      var words = new string[] { "Soft Pastel", "Charcoral", "Sephia", "Oil", "Graphite" };
+      var fakerLogger = new FakeLogger();
+
+      // Act
+      words.Each((word, index) =>
+      {
+        fakerLogger.Log($"{index} - Drawing material/technique is {word}.");
+      });
+
+      // Assert
+      Assert.Equal(5, fakerLogger.Messages.Count);
+      Assert.Contains("0", fakerLogger.Messages.FirstOrDefault());
+      Assert.Contains("4", fakerLogger.Messages.LastOrDefault());
+    }
   }
 }
