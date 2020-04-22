@@ -7,6 +7,11 @@ namespace RoyalLibrary.Tests
   public class RoyalExtensionsTests
   {
     private static readonly int[] input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
+    private readonly FakeLogger _fakeLogger;
+
+    public RoyalExtensionsTests() {
+      _fakeLogger = new FakeLogger();
+    }
 
     [Fact]
     public void TimesExecutesFiveTimes()
@@ -75,17 +80,16 @@ namespace RoyalLibrary.Tests
     {
       // Arrange
       var words = new string[] { "Soft Pastel", "Charcoral", "Sephia", "Oil", "Graphite" };
-      var fakerLogger = new FakeLogger();
 
       // Act
       words.Each(word =>
       {
-        fakerLogger.Log($"Drawing material/technique is {word}.");
+        _fakeLogger.Log($"Drawing material/technique is {word}.");
       });
 
       // Assert
-      Assert.Equal(5, fakerLogger.Messages.Count);
-      Assert.Contains(fakerLogger.Messages, word => word.Contains("Sephia"));
+      Assert.Equal(5, _fakeLogger.Messages.Count);
+      Assert.Contains(_fakeLogger.Messages, word => word.Contains("Sephia"));
     }
 
     [Fact]
@@ -93,18 +97,17 @@ namespace RoyalLibrary.Tests
     {
       // Arrange
       var words = new string[] { "Soft Pastel", "Charcoral", "Sephia", "Oil", "Graphite" };
-      var fakerLogger = new FakeLogger();
 
       // Act
       words.Each((word, index) =>
       {
-        fakerLogger.Log($"{index} - Drawing material/technique is {word}.");
+        _fakeLogger.Log($"{index} - Drawing material/technique is {word}.");
       });
 
       // Assert
-      Assert.Equal(5, fakerLogger.Messages.Count);
-      Assert.Contains("0", fakerLogger.Messages.FirstOrDefault());
-      Assert.Contains("4", fakerLogger.Messages.LastOrDefault());
+      Assert.Equal(5, _fakeLogger.Messages.Count);
+      Assert.Contains("0", _fakeLogger.Messages.FirstOrDefault());
+      Assert.Contains("4", _fakeLogger.Messages.LastOrDefault());
     }
   }
 }
