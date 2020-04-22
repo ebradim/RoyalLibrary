@@ -63,7 +63,6 @@ namespace RoyalLibrary.Tests
       Assert.Equal(722, output);
     }
 
-
     [Fact]
     public void TotalAllOddsReturnsValidOutput()
     {
