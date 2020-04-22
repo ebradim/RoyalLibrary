@@ -9,7 +9,8 @@ namespace RoyalLibrary.Tests
     private static readonly int[] input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
     private readonly FakeLogger _fakeLogger;
 
-    public RoyalExtensionsTests() {
+    public RoyalExtensionsTests()
+    {
       _fakeLogger = new FakeLogger();
     }
 
@@ -108,6 +109,19 @@ namespace RoyalLibrary.Tests
       Assert.Equal(5, _fakeLogger.Messages.Count);
       Assert.Contains("0", _fakeLogger.Messages.FirstOrDefault());
       Assert.Contains("4", _fakeLogger.Messages.LastOrDefault());
+    }
+
+    [Fact]
+    public void MapReturnsValidOutput()
+    {
+      // Arrange 
+
+      // Act
+      var output = input.Map(number => number * 2);
+
+      // Assert
+      Assert.Equal(new int[] { 2, 4, 6, 8, 10, 12, 14, 16, 20, 688, 1_134, 696 }, output);
+      Assert.Equal(2610, output.Sum());
     }
   }
 }
