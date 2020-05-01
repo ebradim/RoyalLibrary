@@ -7,7 +7,23 @@ Package available in **Nuget**
 https://www.nuget.org/packages/RoyalLibrary/
 
 
-## Examples
+## Installation
+
+Install the [RoyalLibrary NuGet Package](https://www.nuget.org/packages/RoyalLibrary).
+
+### Package Manager Console
+
+```
+Install-Package RoyalLibrary
+```
+
+### .NET Core CLI
+
+```
+dotnet add package RoyalLibrary
+```
+
+## Examples and usage
 
 ```
 var myArray = new[] { 1, 45, 34, 435 };
