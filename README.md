@@ -1,10 +1,6 @@
 # Royal Library
 
-Some extensions methods like the ones in Ruby .each .map and more
-
-Package available in **Nuget**
-
-https://www.nuget.org/packages/RoyalLibrary/
+Some extensions methods like the ones in Ruby .each .map and more...
 
 
 ## Installation
