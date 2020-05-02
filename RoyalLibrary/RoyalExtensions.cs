@@ -49,6 +49,11 @@ namespace RoyalLibrary
     public static long TotalAllOdds(this IEnumerable<int> numbers) => numbers.Odds().Sum();
     #endregion 
 
+    #region Comparision Utilities 
+    public static bool IsGreaterThan(this int i, int value) => i > value;
+
+    #endregion
+
     #region Enumerables
     /// <summary>
     /// Applies the action on each element in the current collection. Do not return a new 
