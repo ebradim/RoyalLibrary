@@ -1,13 +1,25 @@
 # Royal Library
 
-Some extensions methods like the ones in Ruby .each .map and more
-
-Package available in **Nuget**
-
-https://www.nuget.org/packages/RoyalLibrary/
+Some extensions methods like the ones in Ruby .each .map and more...
 
 
-## Examples
+## Installation
+
+Install the [RoyalLibrary NuGet Package](https://www.nuget.org/packages/RoyalLibrary).
+
+### Package Manager Console
+
+```
+Install-Package RoyalLibrary
+```
+
+### .NET Core CLI
+
+```
+dotnet add package RoyalLibrary
+```
+
+## Examples and usage
 
 ```
 var myArray = new[] { 1, 45, 34, 435 };
