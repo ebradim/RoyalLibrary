@@ -21,7 +21,7 @@ dotnet add package RoyalLibrary
 
 ## Examples and usage
 
-```
+```csharp
 var myArray = new[] { 1, 45, 34, 435 };
 
 // Evens and odds
