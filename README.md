@@ -2,6 +2,7 @@
 
 Some extensions methods like the ones in Ruby .each .map and more...
 
+Targeted to .Net Standard 2.0
 
 ## Installation
 
