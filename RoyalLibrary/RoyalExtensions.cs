@@ -16,10 +16,10 @@ namespace RoyalLibrary
     /// <param name="action">Action type to execute on each iteration</param>
     public static void Times(this int source, Action<int> action)
     {
-      if(action == null)
+      if (action == null)
         throw new ArgumentNullException(nameof(action));
 
-      for(var i = 0; i < source; i++)
+      for (var i = 0; i < source; i++)
       {
         action(i);
       }
@@ -42,15 +42,15 @@ namespace RoyalLibrary
     /// <returns></returns>
     public static IEnumerable<T> Evens<T>(this IEnumerable<T> source, Func<T, int> selector)
     {
-      if(source == null)
+      if (source == null)
         throw new ArgumentNullException(nameof(source));
 
-      if(selector == null)
+      if (selector == null)
         throw new ArgumentNullException(nameof(selector));
 
-      foreach(var item in source)
+      foreach (var item in source)
       {
-        if(selector(item) % 2 == 0)
+        if (selector(item) % 2 == 0)
           yield return item;
       }
     }
@@ -70,15 +70,15 @@ namespace RoyalLibrary
     /// <returns></returns>
     public static IEnumerable<T> Odds<T>(this IEnumerable<T> source, Func<T, int> selector)
     {
-      if(source == null)
+      if (source == null)
         throw new ArgumentNullException(nameof(source));
 
-      if(selector == null)
+      if (selector == null)
         throw new ArgumentNullException(nameof(selector));
 
-      foreach(var item in source)
+      foreach (var item in source)
       {
-        if(selector(item) % 2 != 0)
+        if (selector(item) % 2 != 0)
           yield return item;
       }
     }
@@ -119,10 +119,10 @@ namespace RoyalLibrary
     /// <param name="action">Applied action on to transform each collection element</param>
     public static void Each<T>(this IEnumerable<T> source, Action<T> action)
     {
-      if(source == null)
+      if (source == null)
         throw new ArgumentNullException(nameof(source));
 
-      foreach(var element in source)
+      foreach (var element in source)
       {
         action(element);
       }
@@ -137,40 +137,39 @@ namespace RoyalLibrary
     /// <param name="action">Applied action on to transform each collection element</param>
     public static void Each<T>(this IEnumerable<T> source, Action<T, int> action)
     {
-      if(source == null)
+      if (source == null)
         throw new ArgumentNullException(nameof(source));
 
-      if(action == null)
+      if (action == null)
         throw new ArgumentNullException(nameof(action));
 
       var index = 0;
-      foreach(var element in source)
+      foreach (var element in source)
       {
         action(element, index++);
       }
     }
 
     /// <summary>
-    /// Returns a new IEnumerable collection, after applying  the action on each current collection element
-    /// without  mutating the current collection
+    /// Deferred execution returnning a LINQ sequence of elements, after applying the selector on each sequence element
     /// </summary>
-    /// <typeparam name="T">Element collection type</typeparam>
-    /// <typeparam name="TU">Result collection type</typeparam>
-    /// <param name="source">Current collection</param>
-    /// <param name="action">Applied action to transform each collection element</param>
+    /// <typeparam name="T">Element type</typeparam>
+    /// <typeparam name="TResult">Result data type</typeparam>
+    /// <param name="source">Input LINQ sequence</param>
+    /// <param name="selector">Applied action to transform each collection element</param>
     /// <returns></returns>
-    public static IEnumerable<TU> Map<T, TU>(this IEnumerable<T> source, Func<T, TU> action)
+    public static IEnumerable<TResult> Map<T, TResult>(this IEnumerable<T> source, Func<T, TResult> selector)
     {
-      if(source == null)
+      if (source == null)
         throw new ArgumentNullException(nameof(source));
 
-      var enumerable = new List<TU>();
-      foreach(var element in source)
-      {
-        enumerable.Add(action(element));
-      }
+      if (selector == null)
+        throw new ArgumentNullException(nameof(selector));
 
-      return enumerable;
+      foreach (var element in source)
+      {
+        yield return selector(element);
+      }
     }
 
     /// <summary>
@@ -184,20 +183,20 @@ namespace RoyalLibrary
     public static TElement MaxElement<TElement, TData>(this IEnumerable<TElement> source,
       Func<TElement, TData> selector) where TData : IComparable<TData>
     {
-      if(source == null)
+      if (source == null)
         throw new ArgumentNullException(nameof(source));
 
-      if(selector == null)
+      if (selector == null)
         throw new ArgumentNullException(nameof(selector));
 
       var firstElement = true;
       var result = default(TElement);
       var maxValue = default(TData);
 
-      foreach(var element in source)
+      foreach (var element in source)
       {
         var candidate = selector(element);
-        if(!firstElement && (candidate.CompareTo(maxValue) <= 0)) continue;
+        if (!firstElement && (candidate.CompareTo(maxValue) <= 0)) continue;
         firstElement = false;
         maxValue = candidate;
         result = element;
