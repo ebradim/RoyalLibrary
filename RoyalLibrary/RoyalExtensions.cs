@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace RoyalLibrary
 {
+  /// <summary>
+  /// 
+  /// </summary>
   public static class RoyalExtensions
   {
     /// <summary>
@@ -13,10 +16,10 @@ namespace RoyalLibrary
     /// <param name="action">Action type to execute on each iteration</param>
     public static void Times(this int source, Action<int> action)
     {
-      if (action == null)
+      if(action == null)
         throw new ArgumentNullException(nameof(action));
 
-      for (var i = 0; i < source; i++)
+      for(var i = 0; i < source; i++)
       {
         action(i);
       }
@@ -31,6 +34,28 @@ namespace RoyalLibrary
     public static IEnumerable<int> Evens(this IEnumerable<int> numbers) => numbers.Where(n => n % 2 == 0);
 
     /// <summary>
+    /// Deferred execution
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="source"></param>
+    /// <param name="selector"></param>
+    /// <returns></returns>
+    public static IEnumerable<T> Evens<T>(this IEnumerable<T> source, Func<T, int> selector)
+    {
+      if(source == null)
+        throw new ArgumentNullException(nameof(source));
+
+      if(selector == null)
+        throw new ArgumentNullException(nameof(selector));
+
+      foreach(var item in source)
+      {
+        if(selector(item) % 2 == 0)
+          yield return item;
+      }
+    }
+
+    /// <summary>
     /// Return an array of odds integers from an integer source collection
     /// </summary>
     /// <param name="numbers">Integer source collection</param>
@@ -38,21 +63,48 @@ namespace RoyalLibrary
     public static IEnumerable<int> Odds(this IEnumerable<int> numbers) => numbers.Where(n => n % 2 != 0);
 
     /// <summary>
+    /// Deferred Execution
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="selector"></param>
+    /// <returns></returns>
+    public static IEnumerable<T> Odds<T>(this IEnumerable<T> source, Func<T, int> selector)
+    {
+      if(source == null)
+        throw new ArgumentNullException(nameof(source));
+
+      if(selector == null)
+        throw new ArgumentNullException(nameof(selector));
+
+      foreach(var item in source)
+      {
+        if(selector(item) % 2 != 0)
+          yield return item;
+      }
+    }
+
+    /// <summary>
     /// Return a sum of all evens integers from an integer source collection
     /// </summary>
     /// <param name="numbers">Integer source collection</param>
     /// <returns></returns>
-    public static long TotalAllEvens(this IEnumerable<int> numbers) => numbers.Evens().Sum();
+    public static long TotalAllEvens(this IEnumerable<int> numbers) => numbers.Evens().LongSum();
 
     /// <summary>
     /// Return a sum of all odds integers from an integer source collection
     /// </summary>
     /// <param name="numbers">Integer source collection</param>
     /// <returns></returns>
-    public static long TotalAllOdds(this IEnumerable<int> numbers) => numbers.Odds().Sum();
+    public static long TotalAllOdds(this IEnumerable<int> numbers) => numbers.Odds().LongSum();
     #endregion 
 
     #region Comparision Utilities 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="i"></param>
+    /// <param name="value"></param>
+    /// <returns></returns>
     public static bool IsGreaterThan(this int i, int value) => i > value;
 
     #endregion
@@ -67,10 +119,10 @@ namespace RoyalLibrary
     /// <param name="action">Applied action on to transform each collection element</param>
     public static void Each<T>(this IEnumerable<T> source, Action<T> action)
     {
-      if (source == null)
+      if(source == null)
         throw new ArgumentNullException(nameof(source));
 
-      foreach (var element in source)
+      foreach(var element in source)
       {
         action(element);
       }
@@ -85,14 +137,14 @@ namespace RoyalLibrary
     /// <param name="action">Applied action on to transform each collection element</param>
     public static void Each<T>(this IEnumerable<T> source, Action<T, int> action)
     {
-      if (source == null)
+      if(source == null)
         throw new ArgumentNullException(nameof(source));
 
-      if (action == null)
+      if(action == null)
         throw new ArgumentNullException(nameof(action));
 
       var index = 0;
-      foreach (var element in source)
+      foreach(var element in source)
       {
         action(element, index++);
       }
@@ -109,11 +161,11 @@ namespace RoyalLibrary
     /// <returns></returns>
     public static IEnumerable<TU> Map<T, TU>(this IEnumerable<T> source, Func<T, TU> action)
     {
-      if (source == null)
+      if(source == null)
         throw new ArgumentNullException(nameof(source));
 
       var enumerable = new List<TU>();
-      foreach (var element in source)
+      foreach(var element in source)
       {
         enumerable.Add(action(element));
       }
@@ -132,20 +184,20 @@ namespace RoyalLibrary
     public static TElement MaxElement<TElement, TData>(this IEnumerable<TElement> source,
       Func<TElement, TData> selector) where TData : IComparable<TData>
     {
-      if (source == null)
+      if(source == null)
         throw new ArgumentNullException(nameof(source));
 
-      if (selector == null)
+      if(selector == null)
         throw new ArgumentNullException(nameof(selector));
 
       var firstElement = true;
       var result = default(TElement);
       var maxValue = default(TData);
 
-      foreach (var element in source)
+      foreach(var element in source)
       {
         var candidate = selector(element);
-        if (!firstElement && (candidate.CompareTo(maxValue) <= 0)) continue;
+        if(!firstElement && (candidate.CompareTo(maxValue) <= 0)) continue;
         firstElement = false;
         maxValue = candidate;
         result = element;

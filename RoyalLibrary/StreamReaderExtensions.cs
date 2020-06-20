@@ -4,10 +4,13 @@ using System.IO;
 
 namespace RoyalLibrary
 {
+  /// <summary>
+  /// 
+  /// </summary>
   public static class StreamReaderExtensions
   {
     /// <summary>
-    /// 
+    /// Deferred execution for an StreamReader source
     /// </summary>
     /// <param name="source"></param>
     /// <returns></returns>
@@ -17,9 +20,9 @@ namespace RoyalLibrary
 
       if(source == null)
         throw new ArgumentNullException(nameof(source));
-
       while((line = source.ReadLine()) != null)
         yield return line;
+
     }
   }
 }
