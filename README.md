@@ -1,6 +1,6 @@
 # Royal Library
 
-Some extensions methods like the ones in Ruby .each .map and more...
+LINQ based extensions that replicate patterns from Ruby like .each .map and more...
 
 Targeted to .Net Standard 2.0
 
