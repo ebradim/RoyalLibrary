@@ -33,6 +33,14 @@ myArray.Odds();
 myArray.TotalAllEvens();
 myArray.TotalAllOdds();
 
+// Times
+5.Times(_ => {
+  var theVar = 13;
+  Debug.Log($"This is {theVar}");
+});
+
+// Sequences, IEnumerable<T>
+
 // Each
 myArray.Each(item => Debug.Log($"Using the strength: {item}"));
 
@@ -43,6 +51,7 @@ shapes.Each(shape => {
   Debug.Log(shape);
 });
 
+// Each with Index
 shapes.Each((item, index) => {
   Debug.Log($"Item: {item.ToUpper()} with index: {index}");
 });
@@ -50,11 +59,9 @@ shapes.Each((item, index) => {
 // Map
 myArray.Map(item => item * 2).Each(item => Debug.Log($"Using the strength doubled: {item}"));
 
-// Times
-5.Times(_ => {
-  var theVar = 13;
-  Debug.Log($"This is {theVar}");
-});
+// Max Element in the sequence
+var maxBook = SampleData.Books.MaxElement(book => book.PageCount);
+Console.WriteLine($"Max Book Page Count => {maxBook.Title");
 ```
 
 ## Contributing

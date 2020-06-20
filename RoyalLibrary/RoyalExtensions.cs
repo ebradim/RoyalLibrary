@@ -13,6 +13,9 @@ namespace RoyalLibrary
     /// <param name="action">Action type to execute on each iteration</param>
     public static void Times(this int source, Action<int> action)
     {
+      if (action == null)
+        throw new ArgumentNullException(nameof(action));
+
       for (var i = 0; i < source; i++)
       {
         action(i);
@@ -64,6 +67,9 @@ namespace RoyalLibrary
     /// <param name="action">Applied action on to transform each collection element</param>
     public static void Each<T>(this IEnumerable<T> source, Action<T> action)
     {
+      if (source == null)
+        throw new ArgumentNullException(nameof(source));
+
       foreach (var element in source)
       {
         action(element);
@@ -79,6 +85,12 @@ namespace RoyalLibrary
     /// <param name="action">Applied action on to transform each collection element</param>
     public static void Each<T>(this IEnumerable<T> source, Action<T, int> action)
     {
+      if (source == null)
+        throw new ArgumentNullException(nameof(source));
+
+      if (action == null)
+        throw new ArgumentNullException(nameof(action));
+
       var index = 0;
       foreach (var element in source)
       {
@@ -97,6 +109,9 @@ namespace RoyalLibrary
     /// <returns></returns>
     public static IEnumerable<TU> Map<T, TU>(this IEnumerable<T> source, Func<T, TU> action)
     {
+      if (source == null)
+        throw new ArgumentNullException(nameof(source));
+
       var enumerable = new List<TU>();
       foreach (var element in source)
       {
@@ -104,6 +119,30 @@ namespace RoyalLibrary
       }
 
       return enumerable;
+    }
+
+    public static TElement MaxElement<TElement, TData>(this IEnumerable<TElement> source,
+      Func<TElement, TData> selector) where TData : IComparable<TData>
+    {
+      if (source == null)
+        throw new ArgumentNullException(nameof(source));
+
+      if (selector == null)
+        throw new ArgumentNullException(nameof(selector));
+
+      var firstElement = true;
+      var result = default(TElement);
+      var maxValue = default(TData);
+
+      foreach (var element in source)
+      {
+        var candidate = selector(element);
+        if (!firstElement && (candidate.CompareTo(maxValue) <= 0)) continue;
+        firstElement = false;
+        maxValue = candidate;
+        result = element;
+      }
+      return result;
     }
     #endregion
   }
