@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>ByteDecoder</Authors>
     <Company />
-    <Description>Some extensions methods like the ones in Ruby .each .map and more</Description>
+    <Description>LINQ based extensions that replicate patterns from Ruby like .each .map and more...</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/ByteDecoder/RoyalLibrary</RepositoryUrl>
     <RepositoryType>MIT</RepositoryType>

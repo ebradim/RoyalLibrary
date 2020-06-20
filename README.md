@@ -61,7 +61,16 @@ myArray.Map(item => item * 2).Each(item => Debug.Log($"Using the strength double
 
 // Max Element in the sequence
 var maxBook = SampleData.Books.MaxElement(book => book.PageCount);
-Console.WriteLine($"Max Book Page Count => {maxBook.Title");
+Console.WriteLine($"Max Book Page Count => {maxBook.Title}");
+
+// Deferred Executiion with StreamReader sequences
+using var reader = new StreamReader("books.csv");
+
+Data =
+  from line in reader.Lines()
+  where !line.StartsWith("#")
+  let parts = line.Split(',')
+  select new { Title = parts[1], Publisher = parts[3], Isbn = parts[0] };
 ```
 
 ## Contributing

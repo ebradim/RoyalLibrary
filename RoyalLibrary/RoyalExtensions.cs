@@ -45,7 +45,7 @@ namespace RoyalLibrary
     public static long TotalAllEvens(this IEnumerable<int> numbers) => numbers.Evens().Sum();
 
     /// <summary>
-    /// Return a sum of all oods integers from an integer source collection
+    /// Return a sum of all odds integers from an integer source collection
     /// </summary>
     /// <param name="numbers">Integer source collection</param>
     /// <returns></returns>
@@ -121,6 +121,14 @@ namespace RoyalLibrary
       return enumerable;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TElement"></typeparam>
+    /// <typeparam name="TData"></typeparam>
+    /// <param name="source"></param>
+    /// <param name="selector"></param>
+    /// <returns></returns>
     public static TElement MaxElement<TElement, TData>(this IEnumerable<TElement> source,
       Func<TElement, TData> selector) where TData : IComparable<TData>
     {
