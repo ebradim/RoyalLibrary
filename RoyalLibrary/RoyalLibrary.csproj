@@ -1,10 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>ByteDecoder</Authors>
     <Company />
+    <Title>RoyalLibrary</Title>
     <Description>Collection of useful LINQ query operators</Description>
+    <copyright>Copyright (c) 2020 Rodrigo Reyes released under the MIT license</copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/ByteDecoder/RoyalLibrary</RepositoryUrl>
     <RepositoryType>MIT</RepositoryType>
