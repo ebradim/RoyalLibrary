@@ -117,7 +117,7 @@ namespace RoyalLibrary
     /// <typeparam name="T">Element collection type</typeparam>
     /// <param name="source">Current collection</param>
     /// <param name="action">Applied action on to transform each collection element</param>
-    public static void Each<T>(this IEnumerable<T> source, Action<T> action)
+    public static void ForEach<T>(this IEnumerable<T> source, Action<T> action)
     {
       if (source == null)
         throw new ArgumentNullException(nameof(source));
@@ -135,7 +135,7 @@ namespace RoyalLibrary
     /// <typeparam name="T">Element collection type</typeparam>
     /// <param name="source">Current collection</param>
     /// <param name="action">Applied action on to transform each collection element</param>
-    public static void Each<T>(this IEnumerable<T> source, Action<T, int> action)
+    public static void ForEach<T>(this IEnumerable<T> source, Action<T, int> action)
     {
       if (source == null)
         throw new ArgumentNullException(nameof(source));

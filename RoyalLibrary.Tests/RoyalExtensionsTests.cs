@@ -82,7 +82,7 @@ namespace RoyalLibrary.Tests
       var words = new string[] { "Soft Pastel", "Charcoral", "Sephia", "Oil", "Graphite" };
 
       // Act
-      words.Each(word =>
+      words.ForEach(word =>
       {
         _fakeLogger.Log($"Drawing material/technique is {word}.");
       });
@@ -99,7 +99,7 @@ namespace RoyalLibrary.Tests
       var words = new string[] { "Soft Pastel", "Charcoral", "Sephia", "Oil", "Graphite" };
 
       // Act
-      words.Each((word, index) =>
+      words.ForEach((word, index) =>
       {
         _fakeLogger.Log($"{index} - Drawing material/technique is {word}.");
       });

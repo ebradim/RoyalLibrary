@@ -1,0 +1,3 @@
+### 1.0.4 - 2020-06-21
+  * IEnumerable<T>.Each() renamed to IEnumerable<T>.ForEach()
+  

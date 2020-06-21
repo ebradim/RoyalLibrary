@@ -42,17 +42,17 @@ myArray.TotalAllOdds();
 // Sequences, IEnumerable<T>
 
 // Each
-myArray.Each(item => Debug.Log($"Using the strength: {item}"));
+myArray.ForEach(item => Debug.Log($"Using the strength: {item}"));
 
 string[] shapes = { "circle", "square", "triangle", "octagon" };
 
-shapes.Each(shape => {
+shapes.ForEach(shape => {
   shape = shape.ToUpper();
   Debug.Log(shape);
 });
 
 // Each with Index
-shapes.Each((item, index) => {
+shapes.ForEach((item, index) => {
   Debug.Log($"Item: {item.ToUpper()} with index: {index}");
 });
 
