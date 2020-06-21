@@ -6,13 +6,13 @@
     <Company />
     <Title>RoyalLibrary</Title>
     <Description>Collection of useful LINQ query operators</Description>
-    <copyright>Copyright (c) 2020 Rodrigo Reyes released under the MIT license</copyright>
+    <copyright>Copyright (c) 2020 released under the MIT license</copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/ByteDecoder/RoyalLibrary</RepositoryUrl>
     <RepositoryType>MIT</RepositoryType>
     <PackageTags>csharp dotnetstandard</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.4</Version>
+    <Version>1.1.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
