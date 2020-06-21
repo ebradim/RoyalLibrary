@@ -10,7 +10,7 @@ namespace RoyalLibrary
   public static class ConditionalIndexExtensions
   {
     /// <summary>
-    /// Get top n index from a sequence based on the predicate. Not deferred execution query
+    /// Get top n index from a sequence based on a predicate. Not deferred execution LINQ query
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="source"></param>
