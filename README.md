@@ -71,6 +71,12 @@ Data =
   where !line.StartsWith("#")
   let parts = line.Split(',')
   select new { Title = parts[1], Publisher = parts[3], Isbn = parts[0] };
+
+// Indexes
+// 10011001000
+IList<bool> source = new List<bool> { true, false, false, true, true, false, false, true, false, false, false };
+Data = source.TopIndexes(element => element, 4);
+
 ```
 
 ## Contributing
