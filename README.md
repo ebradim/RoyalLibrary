@@ -1,3 +1,5 @@
+![.NET Core](https://github.com/ByteDecoder/RoyalLibrary/workflows/.NET%20Core/badge.svg?branch=master)
+
 # Royal Library
 
 Collection of useful LINQ query operators
