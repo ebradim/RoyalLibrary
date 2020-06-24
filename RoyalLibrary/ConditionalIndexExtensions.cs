@@ -19,16 +19,16 @@ namespace RoyalLibrary
     /// <returns></returns>
     public static IEnumerable<int> TopIndexes<T>(this IEnumerable<T> source, Func<T, bool> predicate, int topIndexes)
     {
-      if(source == null)
+      if (source == null)
         throw new ArgumentNullException(nameof(source));
 
-      if(predicate == null)
+      if (predicate == null)
         throw new ArgumentNullException(nameof(predicate));
 
       return source.Select((value, index) => new { value, index })
-      .Where(x => predicate(x.value))
-      .Select(x => x.index)
-      .Take(topIndexes);
+        .Where(x => predicate(x.value))
+        .Select(x => x.index)
+        .Take(topIndexes);
     }
   }
 }

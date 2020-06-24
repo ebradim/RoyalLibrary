@@ -16,7 +16,7 @@ namespace RoyalLibrary
     /// <returns></returns>
     public static long LongSum(this IEnumerable<int> source)
     {
-      if(source == null)
+      if (source == null)
         throw new ArgumentNullException(nameof(source));
 
       long sum = 0;
@@ -34,15 +34,15 @@ namespace RoyalLibrary
     /// <returns></returns>
     public static long? LongSum(this IEnumerable<int?> source)
     {
-      if(source == null)
+      if (source == null)
         throw new ArgumentNullException(nameof(source));
 
       long? sum = 0;
       checked
       {
-        foreach(var number in source)
+        foreach (var number in source)
         {
-          if(number.HasValue) sum += number;
+          if (number.HasValue) sum += number;
         }
       }
       return sum;
