@@ -8,18 +8,18 @@ Targeted to .Net Standard 2.0
 
 ## Installation
 
-Install the [RoyalLibrary NuGet Package](https://www.nuget.org/packages/RoyalLibrary).
+Install the [RoyalLibrary NuGet Package](https://www.nuget.org/packages/ByteDecoder.RoyalLibrary).
 
 ### Package Manager Console
 
 ```
-Install-Package RoyalLibrary
+Install-Package ByteDecoder.RoyalLibrary
 ```
 
 ### .NET Core CLI
 
 ```
-dotnet add package RoyalLibrary
+dotnet add package ByteDecoder.RoyalLibrary
 ```
 
 ## Examples and usage

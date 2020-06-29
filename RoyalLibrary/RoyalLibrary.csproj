@@ -4,7 +4,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>ByteDecoder</Authors>
     <Company />
-    <Title>RoyalLibrary</Title>
+
+    <PackageId>ByteDecoder.RoyalLibrary</PackageId>
+    <Title>ByteDecoder.RoyalLibrary</Title>
+
     <Description>Collection of useful LINQ query operators</Description>
     <copyright>Copyright (c) 2020 released under the MIT license</copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
