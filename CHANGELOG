@@ -1,3 +1,5 @@
+### 1.1.1 = 2020-07-01
+  * Changed root namespace to ByteDecoder.RoyalLibrary
 ### 1.0.4 - 2020-06-21
   * IEnumerable<T>.Each() renamed to IEnumerable<T>.ForEach()
   

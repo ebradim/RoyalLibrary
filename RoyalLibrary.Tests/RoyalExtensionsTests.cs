@@ -1,4 +1,5 @@
 using System.Linq;
+using ByteDecoder.RoyalLibrary;
 using RoyalLibrary.Tests.Fakes;
 using Xunit;
 

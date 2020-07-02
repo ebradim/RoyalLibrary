@@ -2,9 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>ByteDecoder.RoyalLibrary</RootNamespace>
+
     <Authors>ByteDecoder</Authors>
     <Company />
-
     <PackageId>ByteDecoder.RoyalLibrary</PackageId>
     <Title>ByteDecoder.RoyalLibrary</Title>
 
@@ -15,7 +16,7 @@
     <RepositoryType>MIT</RepositoryType>
     <PackageTags>csharp dotnetstandard</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
