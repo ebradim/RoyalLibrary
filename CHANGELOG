@@ -1,3 +1,6 @@
+### 1.2.1 = 2020-07-03
+  * Added Int32.Times() with Action (no params begin passed in the action delegate)
+
 ### 1.2.0 = 2020-07-03
   * Assembly name changed to ByteDecoder.RoyalLibrary
 

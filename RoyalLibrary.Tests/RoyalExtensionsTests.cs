@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using ByteDecoder.RoyalLibrary;
 using RoyalLibrary.Tests.Fakes;
@@ -16,7 +17,7 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
-    public void TimesExecutesFiveTimes()
+    public void TimesParams_ExecutesProperly_WhenIsNeededFiveTimes()
     {
       // Arrange
       var count = 0;
@@ -26,6 +27,42 @@ namespace RoyalLibrary.Tests
 
       // Assert
       Assert.Equal(5, count);
+    }
+
+    [Fact]
+    public void TimesNoParams_ExecutesProperly_WhenIsNeededFiveTimes()
+    {
+      // Arrange
+      var count = 0;
+
+      // Act
+      5.Times(() => count++);
+
+      // Assert
+      Assert.Equal(5, count);
+    }
+
+    [Fact]
+    public void TimesNoParams_ThrowsAnArgumentNullException_WhenActionDelegateIsNull()
+    {
+      // Arrange
+      Action actionBlock = null;
+
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => 5.Times(actionBlock));
+    }
+
+
+    [Fact]
+    public void TimesParams_ThrowsAnArgumentNullException_WhenActionDelegateIsNull()
+    {
+      // Arrange
+      Action<int> actionBlock = null;
+
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => 5.Times(actionBlock));
     }
 
     [Fact]
