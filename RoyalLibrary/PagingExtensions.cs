@@ -12,7 +12,7 @@ namespace ByteDecoder.RoyalLibrary
     /// Generic Page query object
     /// </summary>
     /// <param name="query">Sequence source</param>
-    /// <param name="pageNumZeroStart">Starting offset.null Zero is the first page</param>
+    /// <param name="pageNumZeroStart">Starting page number offset. Zero is the first page</param>
     /// <param name="pageSize">Page size</param>
     /// <typeparam name="T">Type of the source</typeparam>
     /// <returns></returns>
