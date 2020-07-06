@@ -52,7 +52,7 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
-    public void Page_ReturnsZeroRecords_WhenPageNumberExeecedDataAvailable()
+    public void Page_ReturnsZeroRecords_WhenPageNumberExceedDataAvailable()
     {
       // Arrange
       // Act
