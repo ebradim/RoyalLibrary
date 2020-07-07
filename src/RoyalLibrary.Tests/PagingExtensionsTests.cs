@@ -7,7 +7,7 @@ namespace RoyalLibrary.Tests
 {
   public class PagingExtensionsTests
   {
-    private string[] Words = new string[] { "news", "wandering", "crack", "lunch", "fiction", "sweater", "stoop", "hideous", "awake", "grandmother" };
+    private readonly string[] _words = new string[] { "news", "wandering", "crack", "lunch", "fiction", "sweater", "stoop", "hideous", "awake", "grandmother" };
 
     [Fact]
     public void Page_ThrowsArgumentNullException_WhenSourceIsNull()
@@ -17,7 +17,7 @@ namespace RoyalLibrary.Tests
 
       // Act
       // Assert
-      Assert.Throws<ArgumentNullException>(() => words.AsQueryable().Page(1, 1));
+      Assert.Throws<ArgumentNullException>(() => words!.AsQueryable().Page(1, 1));
     }
 
     [Fact]
@@ -26,7 +26,7 @@ namespace RoyalLibrary.Tests
       // Arrange
       // Act
       // Assert
-      Assert.Throws<ArgumentOutOfRangeException>(() => Words.AsQueryable().Page(1, 0));
+      Assert.Throws<ArgumentOutOfRangeException>(() => _words.AsQueryable().Page(1, 0));
     }
 
     [Fact]
@@ -34,7 +34,7 @@ namespace RoyalLibrary.Tests
     {
       // Arrange
       // Act
-      var result = Words.AsQueryable().Page(0, 5);
+      var result = _words.AsQueryable().Page(0, 5);
 
       // Assert
       Assert.Equal(5, result.Count());
@@ -45,10 +45,10 @@ namespace RoyalLibrary.Tests
     {
       // Arrange
       // Act
-      var result = Words.AsQueryable().Page(1, 5);
+      var result = _words.AsQueryable().Page(1, 5);
 
       // Assert
-      Assert.True(new string[] { "sweater", "stoop", "hideous", "awake", "grandmother" }.All(word => result.Contains(word)));
+      Assert.True(new[] { "sweater", "stoop", "hideous", "awake", "grandmother" }.All(word => result.Contains(word)));
     }
 
     [Fact]
@@ -56,7 +56,7 @@ namespace RoyalLibrary.Tests
     {
       // Arrange
       // Act
-      var result = Words.AsQueryable().Page(2, 5);
+      var result = _words.AsQueryable().Page(2, 5);
 
       // Assert
       Assert.Equal(0, result.Count());
