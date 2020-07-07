@@ -31,7 +31,7 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
-    public void TopIndexes_ReturnsCorrectIndexes_WhenHaveCorrectData()
+    public void TopIndexes_ReturnsTotalNumberIndexes_WhenHaveCorrectData()
     {
       // Arrange
       var source = new bool[] { true, false, false, true, true, false, false, false, false, false, false };
@@ -41,6 +41,19 @@ namespace RoyalLibrary.Tests
 
       // Assert
       Assert.Equal(3, result.Count());
+    }
+
+    [Fact]
+    public void TopIndexes_ReturnsIndexes_WhenHaveCorrectData()
+    {
+      // Arrange
+      var source = new bool[] { true, false, false, true, true, false, false, false, false, false, false };
+
+      // Act
+      var result = source.TopIndexes(e => e, 4);
+
+      // Assert
+      Assert.True(new int[] { 0, 3, 4 }.Skip(5).All(index => result.Contains(index)));
     }
   }
 }
