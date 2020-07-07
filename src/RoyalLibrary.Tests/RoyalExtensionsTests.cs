@@ -160,7 +160,7 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
-    public void IsGreaterThanReturnsValidResult()
+    public void IsGreaterThan_ReturnsValidResult_WhenHaveValidInput()
     {
       // Arrange
       var number = 123;
