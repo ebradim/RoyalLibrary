@@ -1,6 +1,7 @@
 using ByteDecoder.RoyalLibrary;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace RoyalLibrary.Tests
@@ -27,6 +28,19 @@ namespace RoyalLibrary.Tests
       // Act
       // Assert
       Assert.Throws<ArgumentNullException>(() => source.TopIndexes(null, 4));
+    }
+
+    [Fact]
+    public void TopIndexes_ReturnsCorrectIndexes_WhenHaveCorrectData()
+    {
+      // Arrange
+      var source = new bool[] { true, false, false, true, true, false, false, false, false, false, false };
+
+      // Act
+      var result = source.TopIndexes(e => e, 4);
+
+      // Assert
+      Assert.Equal(3, result.Count());
     }
   }
 }
