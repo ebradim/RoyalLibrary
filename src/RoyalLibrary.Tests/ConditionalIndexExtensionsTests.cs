@@ -23,7 +23,7 @@ namespace RoyalLibrary.Tests
     public void TopIndexes_ThrowsAnArgumentNullException_WhenPredicateDelegateIsNull()
     {
       // Arrange
-      var source = new bool[] { true, true, false };
+      var source = new[] { true, true, false };
 
       // Act
       // Assert
@@ -34,7 +34,7 @@ namespace RoyalLibrary.Tests
     public void TopIndexes_ReturnsTotalNumberIndexes_WhenHaveCorrectData()
     {
       // Arrange
-      var source = new bool[] { true, false, false, true, true, false, false, false, false, false, false };
+      var source = new[] { true, false, false, true, true, false, false, false, false, false, false };
 
       // Act
       var result = source.TopIndexes(e => e, 4);
@@ -47,13 +47,13 @@ namespace RoyalLibrary.Tests
     public void TopIndexes_ReturnsIndexes_WhenHaveCorrectData()
     {
       // Arrange
-      var source = new bool[] { true, false, false, true, true, false, false, false, false, false, false };
+      var source = new[] { true, false, false, true, true, false, false, false, false, false, false };
 
       // Act
       var result = source.TopIndexes(e => e, 4);
 
       // Assert
-      Assert.True(new int[] { 0, 3, 4 }.All(index => result.Contains(index)));
+      Assert.True(new[] { 0, 3, 4 }.All(index => result.Contains(index)));
     }
   }
 }

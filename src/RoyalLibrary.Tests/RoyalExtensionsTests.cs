@@ -8,7 +8,7 @@ namespace RoyalLibrary.Tests
 {
   public class RoyalExtensionsTests
   {
-    private static readonly int[] input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
+    private static readonly int[] Input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
     private readonly FakeLogger _fakeLogger;
 
     public RoyalExtensionsTests()
@@ -46,11 +46,9 @@ namespace RoyalLibrary.Tests
     public void TimesNoParams_ThrowsAnArgumentNullException_WhenActionDelegateIsNull()
     {
       // Arrange
-      Action actionBlock = null;
-
       // Act
       // Assert
-      Assert.Throws<ArgumentNullException>(() => 5.Times(actionBlock));
+      Assert.Throws<ArgumentNullException>(() => 5.Times((Action) null));
     }
 
 
@@ -58,11 +56,9 @@ namespace RoyalLibrary.Tests
     public void TimesParams_ThrowsAnArgumentNullException_WhenActionDelegateIsNull()
     {
       // Arrange
-      Action<int> actionBlock = null;
-
       // Act
       // Assert
-      Assert.Throws<ArgumentNullException>(() => 5.Times(actionBlock));
+      Assert.Throws<ArgumentNullException>(() => 5.Times((Action<int>) null));
     }
 
     [Fact]
@@ -70,10 +66,10 @@ namespace RoyalLibrary.Tests
     {
       // Arrange 
       // Act
-      var output = input.Evens();
+      var output = Input.Evens();
 
       // Assert
-      Assert.Equal(new int[] { 2, 4, 6, 8, 10, 344, 348 }, output);
+      Assert.Equal(new[] { 2, 4, 6, 8, 10, 344, 348 }, output);
     }
 
     [Fact]
@@ -81,10 +77,10 @@ namespace RoyalLibrary.Tests
     {
       // Arrange 
       // Act
-      var output = input.Odds();
+      var output = Input.Odds();
 
       // Assert
-      Assert.Equal(new int[] { 1, 3, 5, 7, 567 }, output);
+      Assert.Equal(new[] { 1, 3, 5, 7, 567 }, output);
     }
 
     [Fact]
@@ -93,7 +89,7 @@ namespace RoyalLibrary.Tests
       // Arrange
 
     // Act
-      var output = input.TotalAllEvens();
+      var output = Input.TotalAllEvens();
 
       // Assert
       Assert.Equal(722, output);
@@ -105,7 +101,7 @@ namespace RoyalLibrary.Tests
       // Arrange
 
       // Act
-      var output = input.TotalAllOdds();
+      var output = Input.TotalAllOdds();
 
       // Assert
       Assert.Equal(583, output);
@@ -115,7 +111,7 @@ namespace RoyalLibrary.Tests
     public void EachReturnsValidOutput()
     {
       // Arrange
-      var words = new string[] { "Soft Pastel", "Charcoral", "Sephia", "Oil", "Graphite" };
+      var words = new[] { "Soft Pastel", "Charcoral", "Sephia", "Oil", "Graphite" };
 
       // Act
       words.ForEach(word =>
@@ -132,7 +128,7 @@ namespace RoyalLibrary.Tests
     public void EachWithIndexReturnsValidOutput()
     {
       // Arrange
-      var words = new string[] { "Soft Pastel", "Charcoral", "Sephia", "Oil", "Graphite" };
+      var words = new[] { "Soft Pastel", "Charcoral", "Sephia", "Oil", "Graphite" };
 
       // Act
       words.ForEach((word, index) =>
@@ -142,8 +138,8 @@ namespace RoyalLibrary.Tests
 
       // Assert
       Assert.Equal(5, _fakeLogger.Messages.Count);
-      Assert.Contains("0", _fakeLogger.Messages.FirstOrDefault());
-      Assert.Contains("4", _fakeLogger.Messages.LastOrDefault());
+      Assert.Contains("0", _fakeLogger.Messages.FirstOrDefault() ?? string.Empty);
+      Assert.Contains("4", _fakeLogger.Messages.LastOrDefault() ?? string.Empty);
     }
 
     [Fact]
@@ -152,10 +148,10 @@ namespace RoyalLibrary.Tests
       // Arrange 
 
       // Act
-      var output = input.Map(number => number * 2);
+      var output = Input.Map(number => number * 2).ToArray();
 
       // Assert
-      Assert.Equal(new int[] { 2, 4, 6, 8, 10, 12, 14, 16, 20, 688, 1_134, 696 }, output);
+      Assert.Equal(new[] { 2, 4, 6, 8, 10, 12, 14, 16, 20, 688, 1_134, 696 }, output);
       Assert.Equal(2610, output.Sum());
     }
 
