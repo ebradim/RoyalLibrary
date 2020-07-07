@@ -22,7 +22,6 @@ namespace ByteDecoder.RoyalLibrary
 
       while ((line = source.ReadLine()) != null)
         yield return line;
-
     }
   }
 }
