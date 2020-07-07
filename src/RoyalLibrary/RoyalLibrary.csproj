@@ -14,11 +14,13 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/ByteDecoder/RoyalLibrary</RepositoryUrl>
     <RepositoryType>MIT</RepositoryType>
-    <PackageTags>csharp dotnetstandard</PackageTags>
+    <PackageTags>csharp dotnetstandard linq</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.3.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>ByteDecoder.RoyalLibrary</AssemblyName>
+    <PackageProjectUrl>https://github.com/ByteDecoder/RoyalLibrary</PackageProjectUrl>
+    <Summary>Collection of useful LINQ query operators</Summary>
   </PropertyGroup>
 
   <ItemGroup>
