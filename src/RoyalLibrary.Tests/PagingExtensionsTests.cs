@@ -7,7 +7,19 @@ namespace RoyalLibrary.Tests
 {
   public class PagingExtensionsTests
   {
-    private readonly string[] _words = new string[] { "news", "wandering", "crack", "lunch", "fiction", "sweater", "stoop", "hideous", "awake", "grandmother" };
+    private readonly string[] _words = new string[]
+    {
+      "news",
+      "wandering",
+      "crack",
+      "lunch",
+      "fiction",
+      "sweater",
+      "stoop",
+      "hideous",
+      "awake",
+      "grandmother"
+    };
 
     [Fact]
     public void Page_ThrowsArgumentNullException_WhenSourceIsNull()
@@ -48,7 +60,7 @@ namespace RoyalLibrary.Tests
       var result = _words.AsQueryable().Page(1, 5);
 
       // Assert
-      Assert.True(new[] { "sweater", "stoop", "hideous", "awake", "grandmother" }.All(word => result.Contains(word)));
+      Assert.True(_words.Skip(5).All(word => result.Contains(word)));
     }
 
     [Fact]
