@@ -39,8 +39,7 @@ namespace RoyalLibrary.Tests
       using var sr = new StreamReader(ms);
 
       // Act 
-      var count = 0;
-      sr.Lines().ForEach(_ => count++);
+      var count = sr.Lines().Count();
 
       // Assert
       Assert.Equal(4, count);
