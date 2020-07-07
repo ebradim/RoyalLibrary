@@ -18,8 +18,8 @@ namespace ByteDecoder.RoyalLibrary
     {
       string line;
 
-      if (source == null)
-        throw new ArgumentNullException(nameof(source));
+      if (source == null) throw new ArgumentNullException(nameof(source));
+
       while ((line = source.ReadLine()) != null)
         yield return line;
 

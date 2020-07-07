@@ -66,10 +66,9 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
-    public void EvensReturnsValidOutput()
+    public void Evens_ReturnsValidOutput_WhenHasValidSource()
     {
       // Arrange 
-
       // Act
       var output = input.Evens();
 
@@ -78,10 +77,9 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
-    public void OddsReturnsValidOutput()
+    public void Odds_ReturnsValidOutput_WhenHasValidSource()
     {
       // Arrange 
-
       // Act
       var output = input.Odds();
 
@@ -94,7 +92,7 @@ namespace RoyalLibrary.Tests
     {
       // Arrange
 
-      // Act
+    // Act
       var output = input.TotalAllEvens();
 
       // Assert
