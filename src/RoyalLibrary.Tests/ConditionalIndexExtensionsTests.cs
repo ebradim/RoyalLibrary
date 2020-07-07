@@ -53,7 +53,7 @@ namespace RoyalLibrary.Tests
       var result = source.TopIndexes(e => e, 4);
 
       // Assert
-      Assert.True(new int[] { 0, 3, 4 }.Skip(5).All(index => result.Contains(index)));
+      Assert.True(new int[] { 0, 3, 4 }.All(index => result.Contains(index)));
     }
   }
 }
