@@ -21,11 +21,11 @@ namespace RoyalLibrary.Tests
             };
             var expected = new List<string>()
             {
-                "Na Za",
+                "Ai Bi Az",
                 "AA bb",
                 "Ai Bi Bu",
-                "Ai Bi Az",
                 "Xa Ma Co",
+                "Na Za",
 
             };
             var actual = await unSortedlist.RoyalSortLastAsync();
