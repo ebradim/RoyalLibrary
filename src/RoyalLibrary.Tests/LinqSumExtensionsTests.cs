@@ -55,7 +55,7 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
-    public void LongSumWithDelegeateSelector_CalculateCorrectResult_WhenSourceIsNotNull()
+    public void LongSumWithDelegateSelector_CalculateCorrectResult_WhenSourceIsNotNull()
     {
       // Arrange
       var people = new[] {
@@ -68,6 +68,23 @@ namespace RoyalLibrary.Tests
 
       // Assert
       Assert.Equal(23 + 35, result);
+    }
+
+    [Fact]
+    public void LongSumNullableWithDelegateSelector_CalculateCorrectResult_WhenSourceIsNotNull()
+    {
+      // Arrange
+      var people = new[] {
+        new { Name = "Julie", Age = (int?) 23},
+        new { Name = "Anna", Age = (int?) null},
+        new { Name = "Odeth ", Age = (int?) 46}
+      };
+
+      // Act
+      var result = people.LongSum(people => people.Age);
+
+      // Assert
+      Assert.Equal(23 + 46, result);
     }
   }
 }
