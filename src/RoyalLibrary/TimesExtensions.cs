@@ -3,15 +3,15 @@ using System;
 namespace ByteDecoder.RoyalLibrary
 {
   /// <summary>
-  /// 
+  /// Times LINQ query operators allow to excute a block n times defined by the integer number source
   /// </summary>
-  public static class TimeExtensions
+  public static class TimesExtensions
   {
     /// <summary>
     /// Executes n times a code block
     /// </summary>
-    /// <param name="source"></param>
-    /// <param name="action"></param>
+    /// <param name="source">number of iterations</param>
+    /// <param name="action">Action delegate type to execute on each iteration</param>
     public static void Times(this int source, Action action)
     {
       if (action == null)
@@ -26,8 +26,8 @@ namespace ByteDecoder.RoyalLibrary
     /// <summary>
     /// Executes n times an Action delegate without returning anything 
     /// </summary>
-    /// <param name="source">Current collection</param>
-    /// <param name="action">Action type to execute on each iteration + current iteration number</param>
+    /// <param name="source">number of iterations</param>
+    /// <param name="action">Action delegate type to execute on each iteration + current iteration number</param>
     public static void Times(this int source, Action<int> action)
     {
       if (action == null)
@@ -38,6 +38,5 @@ namespace ByteDecoder.RoyalLibrary
         action(i);
       }
     }
-
   }
 }

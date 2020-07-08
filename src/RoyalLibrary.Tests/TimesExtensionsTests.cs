@@ -4,7 +4,7 @@ using Xunit;
 
 namespace RoyalLibrary.Tests
 {
-  public class TimeExtensionsTests
+  public class TimesExtensionsTests
   {
 
     [Fact]
