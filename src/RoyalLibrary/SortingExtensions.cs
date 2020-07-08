@@ -23,7 +23,7 @@ namespace ByteDecoder.RoyalLibrary
             int rowsCount = source.Count();
             byte lastspaceIndex = 0;
             string firstName, lastName = null;
-            var tempDic = new Dictionary<string, string>(rowsCount);
+            var tempDic = new MultiKeysValue() { Capacity = rowsCount };
             var tempList = new List<string>(rowsCount);
             var tempResult = new List<string>(rowsCount);
 
@@ -81,7 +81,7 @@ namespace ByteDecoder.RoyalLibrary
             int rowsCount = source.Count();
             byte lastspaceIndex = 0;
             string firstName, lastName = null;
-            var tempDic = new Dictionary<string, string>(rowsCount);
+            var tempDic = new MultiKeysValue() { Capacity=rowsCount};
             var tempList = new List<string>(rowsCount);
             var tempResult = new List<string>(rowsCount);
 
@@ -135,7 +135,7 @@ namespace ByteDecoder.RoyalLibrary
 
         }
 
-
+        
         private static int IndexOfNth(this string str, char value, int nth)
         {
             if (nth < 0)
@@ -152,5 +152,15 @@ namespace ByteDecoder.RoyalLibrary
         }
 
 
+    }
+     class MultiKeysValue : List<KeyValuePair<string, string>>
+    {
+        
+   
+        public void Add(string key, string value)
+        {
+            var element = new KeyValuePair<string, string>(key, value);
+            this.Add(element);
+        }
     }
 }
