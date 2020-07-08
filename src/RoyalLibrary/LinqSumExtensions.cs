@@ -5,7 +5,8 @@ using System.Linq;
 namespace ByteDecoder.RoyalLibrary
 {
   /// <summary>
-  /// 
+  /// Sum a collection of integers can cause an overflow. To avoid this and don't
+  ///lose the operation result use the LinqSumExtensions
   /// </summary>
   public static class LinqSumExtensions
   {

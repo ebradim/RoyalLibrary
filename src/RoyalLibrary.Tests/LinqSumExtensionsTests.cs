@@ -53,5 +53,21 @@ namespace RoyalLibrary.Tests
       // Assert
       Assert.Equal((long)int.MaxValue + 1 + 4 + 666, result);
     }
+
+    [Fact]
+    public void LongSumWithDelegeateSelector_CalculateCorrectResult_WhenSourceIsNotNull()
+    {
+      // Arrange
+      var people = new[] {
+        new { Name = "Julie", Age = 23},
+        new { Name = "Anna", Age = 35}
+      };
+
+      // Act
+      var result = people.LongSum(people => people.Age);
+
+      // Assert
+      Assert.Equal(23 + 35, result);
+    }
   }
 }
