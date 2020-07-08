@@ -17,52 +17,6 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
-    public void Evens_ReturnsValidOutput_WhenHasValidSource()
-    {
-      // Arrange 
-      // Act
-      var output = Input.Evens();
-
-      // Assert
-      Assert.Equal(new[] { 2, 4, 6, 8, 10, 344, 348 }, output);
-    }
-
-    [Fact]
-    public void Odds_ReturnsValidOutput_WhenHasValidSource()
-    {
-      // Arrange 
-      // Act
-      var output = Input.Odds();
-
-      // Assert
-      Assert.Equal(new[] { 1, 3, 5, 7, 567 }, output);
-    }
-
-    [Fact]
-    public void TotalAllEvensReturnsValidOutput()
-    {
-      // Arrange
-
-    // Act
-      var output = Input.TotalAllEvens();
-
-      // Assert
-      Assert.Equal(722, output);
-    }
-
-    [Fact]
-    public void TotalAllOddsReturnsValidOutput()
-    {
-      // Arrange
-
-      // Act
-      var output = Input.TotalAllOdds();
-
-      // Assert
-      Assert.Equal(583, output);
-    }
-
-    [Fact]
     public void EachReturnsValidOutput()
     {
       // Arrange
