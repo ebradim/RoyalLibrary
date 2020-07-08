@@ -29,5 +29,16 @@ namespace RoyalLibrary.Tests
       // Assert
       Assert.Equal((long)int.MaxValue + 1 + 2 + 4, result);
     }
+
+    [Fact]
+    public void LongSumNullable_ThrowsArgumentNullException_WhenSourceIsNull()
+    {
+      // Arrange
+      int?[] source = null;
+
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => source.LongSum());
+    }
   }
 }
