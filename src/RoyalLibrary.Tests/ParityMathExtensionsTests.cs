@@ -31,6 +31,16 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
+    public void Odds_ThrowsArgumentNullException_WhenSourceIsNull()
+    {
+      // Arrange 
+      IEnumerable<int> source = null;
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => source.Odds());
+    }
+
+    [Fact]
     public void Odds_ReturnsValidOutput_WhenHasValidSource()
     {
       // Arrange 
