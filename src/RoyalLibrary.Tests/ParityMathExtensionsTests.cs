@@ -63,7 +63,18 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
-    public void TotalAllOddsReturnsValidOutput()
+    public void TotalAllEvens_ThrowsArgumentNullException_WhenSourceIsNull()
+    {
+      // Arrange
+      IEnumerable<int> source = null;
+
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => source.TotalAllEvens());
+    }
+
+    [Fact]
+    public void TotalAllOdds_ReturnsValidOutput_WhenHaveValidSource()
     {
       // Arrange
       // Act
@@ -71,6 +82,17 @@ namespace RoyalLibrary.Tests
 
       // Assert
       Assert.Equal(583, output);
+    }
+
+    [Fact]
+    public void TotalAllOdds_ThrowsArgumentNullException_WhenSourceIsNull()
+    {
+      // Arrange
+      IEnumerable<int> source = null;
+
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => source.TotalAllOdds());
     }
   }
 }
