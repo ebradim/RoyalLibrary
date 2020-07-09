@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ByteDecoder.RoyalLibrary;
 using Xunit;
 
@@ -8,6 +9,18 @@ namespace RoyalLibrary.Tests
   public class ParityMathExtensionsTests
   {
     private static readonly int[] Input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
+
+    private class TestStruct
+    {
+      public TestStruct(string name, int age)
+      {
+        Name = name;
+        Age = age;
+      }
+
+      public string Name { get; private set; }
+      public int Age { get; private set; }
+    }
 
     #region ByteDecoder.RoyalLibrary.ParityMathExtensions Delegates Types
 
@@ -56,6 +69,19 @@ namespace RoyalLibrary.Tests
     }
 
     #endregion
+
+    [Fact]
+    public void EvaluatorBase_ThrowsArgumentNullException_WhenSourceIsNull()
+    {
+      // Arrange
+      IEnumerable<TestStruct> persons = null;
+
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() =>
+        persons.EvaluatorBase((Func<int, bool>)null, (Func<TestStruct, int>)null)
+        .Count());
+    }
 
     [Fact]
     public void Evens_ThrowsArgumentNullException_WhenSourceIsNull()
