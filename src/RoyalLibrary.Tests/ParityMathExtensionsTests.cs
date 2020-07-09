@@ -22,8 +22,19 @@ namespace RoyalLibrary.Tests
       Assert.True(result);
     }
 
+    [Fact]
+    public void EvenPredicate_ReturnsFalse_WhenValueIsNotEven()
+    {
+      // Arrange
+      // Act
+      var result = ParityMathExtensions.EvenPredicate.Invoke(3);
+
+      // Assert
+      Assert.False(result);
+    }
+
     #endregion
-    
+
     [Fact]
     public void Evens_ThrowsArgumentNullException_WhenSourceIsNull()
     {
