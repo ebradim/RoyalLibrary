@@ -1,17 +1,29 @@
 using ByteDecoder.RoyalLibrary;
-
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+
 namespace RoyalLibrary.Tests
 {
-    
-    public class SortingExtensionTests
+
+  public class SortingExtensionTests
+  {
+    [Fact]
+    public async void RoyalSortLastAsync_ThrowArgumentNullException_WhenSourceIsNull()
     {
-        [Fact]
-        public async void RoyalSorting_ReturnsTheRight_Sorted_list()
-        {
-            var unSortedlist = new List<string>()
+        // Arrange
+        IList<string> words = null;
+
+        // Act
+        // Assert
+      await Assert.ThrowsAsync<ArgumentNullException>(() => words.RoyalSortLastAsync());
+    }
+
+    [Fact]
+    public async void RoyalSortLastAsync_ReturnsTheRight_Sorted_list()
+    {
+      var unSortedlist = new List<string>()
             {
                 "Ai Bi Bu",
                 "Ai Bi Az",
@@ -19,7 +31,7 @@ namespace RoyalLibrary.Tests
                 "Xa Ma Co",
                 "AA bb"
             };
-            var expected = new List<string>()
+      var expected = new List<string>()
             {
                 "Ai Bi Az",
                 "AA bb",
@@ -28,9 +40,9 @@ namespace RoyalLibrary.Tests
                 "Na Za",
 
             };
-            var actual = await unSortedlist.RoyalSortLastAsync();
+      var actual = await unSortedlist.RoyalSortLastAsync();
 
-            Assert.True(expected[1] == actual.ElementAt(1));
-        }
+      Assert.True(expected[1] == actual.ElementAt(1));
     }
+  }
 }
