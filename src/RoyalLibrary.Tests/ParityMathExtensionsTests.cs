@@ -16,7 +16,7 @@ namespace RoyalLibrary.Tests
     {
       // Arrange
       // Act
-      var result = ParityMathExtensions.EvenPredicate.Invoke(2);
+      var result = ParityMathExtensions.EvenPredicate.Invoke(0);
 
       // Assert
       Assert.True(result);
@@ -31,6 +31,17 @@ namespace RoyalLibrary.Tests
 
       // Assert
       Assert.False(result);
+    }
+
+    [Fact]
+    public void OddPredicate_ReturnsTrue_WhenValueIsOdd()
+    {
+      // Arrange
+      // Act
+      var result = ParityMathExtensions.OddPredicate.Invoke(1);
+
+      // Assert
+      Assert.True(result);
     }
 
     #endregion
