@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using ByteDecoder.RoyalLibrary;
 using Xunit;
 
@@ -6,6 +8,16 @@ namespace RoyalLibrary.Tests
   public class ParityMathExtensionsTests
   {
     private static readonly int[] Input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
+
+    [Fact]
+    public void Evens_ThrowsArgumentNullException_WhenSourceIsNull()
+    {
+      // Arrange 
+      IEnumerable<int> source = null;
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => source.Evens());
+    }
 
     [Fact]
     public void Evens_ReturnsValidOutput_WhenHasValidSource()

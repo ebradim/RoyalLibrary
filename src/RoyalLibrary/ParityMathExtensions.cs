@@ -41,7 +41,7 @@ namespace ByteDecoder.RoyalLibrary
     /// <param name="selector"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    private static IEnumerable<T> EvaluatorBase<T>(this IEnumerable<T> source, Func<int, bool> evaluatorPredicate, Func<T, int> selector)
+    public static IEnumerable<T> EvaluatorBase<T>(this IEnumerable<T> source, Func<int, bool> evaluatorPredicate, Func<T, int> selector)
     {
       if (source == null)
         throw new ArgumentNullException(nameof(source));
