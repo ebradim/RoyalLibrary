@@ -21,7 +21,7 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
-    public async void RoyalSortLastAsync_ReturnsTheRight_Sorted_list()
+    public async void RoyalSortLastAsync_ReturnsTheRightSortedList_WhenCorrectSourceIsProvided()
     {
       var unSortedlist = new List<string>()
             {
