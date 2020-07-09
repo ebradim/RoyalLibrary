@@ -44,6 +44,17 @@ namespace RoyalLibrary.Tests
       Assert.True(result);
     }
 
+    [Fact]
+    public void OddPredicate_ReturnsFalse_WhenValueIsNotOdd()
+    {
+      // Arrange
+      // Act
+      var result = ParityMathExtensions.OddPredicate.Invoke(4);
+
+      // Assert
+      Assert.False(result);
+    }
+
     #endregion
 
     [Fact]
