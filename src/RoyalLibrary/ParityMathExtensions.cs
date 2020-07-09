@@ -10,11 +10,54 @@ namespace ByteDecoder.RoyalLibrary
   public static class ParityMathExtensions
   {
     /// <summary>
+    ///  Even expression evaluation delegate type
+    /// </summary>
+    public static Func<int, bool> EvenPredicate = value => value % 2 == 0;
+
+    /// <summary>
+    /// Odd expression evaluation delegate type
+    /// </summary>
+    public static Func<int, bool> OddPredicate = value => value % 2 != 0;
+
+    /// <summary>
     /// Return an array of evens integers from an integer source collection
     /// </summary>
     /// <param name="numbers">Integer source collection</param>
     /// <returns></returns>
-    public static IEnumerable<int> Evens(this IEnumerable<int> numbers) => numbers.Where(n => n % 2 == 0);
+    public static IEnumerable<int> Evens(this IEnumerable<int> numbers) => numbers.Where(EvenPredicate);
+
+    /// <summary>
+    /// Return an array of odds integers from an integer source collection
+    /// </summary>
+    /// <param name="numbers">Integer source collection</param>
+    /// <returns></returns>
+    public static IEnumerable<int> Odds(this IEnumerable<int> numbers) => numbers.Where(OddPredicate);
+
+    /// <summary>
+    /// Deferred execution
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="evaluatorPredicate"></param>
+    /// <param name="selector"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    private static IEnumerable<T> EvaluatorBase<T>(this IEnumerable<T> source, Func<int, bool> evaluatorPredicate, Func<T, int> selector)
+    {
+      if (source == null)
+        throw new ArgumentNullException(nameof(source));
+
+      if (evaluatorPredicate == null)
+        throw new ArgumentNullException(nameof(evaluatorPredicate));
+
+      if (selector == null)
+        throw new ArgumentNullException(nameof(selector));
+
+      foreach (var item in source)
+      {
+        if (evaluatorPredicate(selector(item)))
+          yield return item;
+      }
+    }
 
     /// <summary>
     /// Deferred execution
@@ -23,27 +66,8 @@ namespace ByteDecoder.RoyalLibrary
     /// <param name="source"></param>
     /// <param name="selector"></param>
     /// <returns></returns>
-    public static IEnumerable<T> Evens<T>(this IEnumerable<T> source, Func<T, int> selector)
-    {
-      if (source == null)
-        throw new ArgumentNullException(nameof(source));
-
-      if (selector == null)
-        throw new ArgumentNullException(nameof(selector));
-
-      foreach (var item in source)
-      {
-        if (selector(item) % 2 == 0)
-          yield return item;
-      }
-    }
-
-    /// <summary>
-    /// Return an array of odds integers from an integer source collection
-    /// </summary>
-    /// <param name="numbers">Integer source collection</param>
-    /// <returns></returns>
-    public static IEnumerable<int> Odds(this IEnumerable<int> numbers) => numbers.Where(n => n % 2 != 0);
+    public static IEnumerable<T> Evens<T>(this IEnumerable<T> source, Func<T, int> selector) =>
+      source.EvaluatorBase(EvenPredicate, selector);
 
     /// <summary>
     /// Deferred Execution
@@ -51,20 +75,8 @@ namespace ByteDecoder.RoyalLibrary
     /// <param name="source"></param>
     /// <param name="selector"></param>
     /// <returns></returns>
-    public static IEnumerable<T> Odds<T>(this IEnumerable<T> source, Func<T, int> selector)
-    {
-      if (source == null)
-        throw new ArgumentNullException(nameof(source));
-
-      if (selector == null)
-        throw new ArgumentNullException(nameof(selector));
-
-      foreach (var item in source)
-      {
-        if (selector(item) % 2 != 0)
-          yield return item;
-      }
-    }
+    public static IEnumerable<T> Odds<T>(this IEnumerable<T> source, Func<T, int> selector) =>
+      source.EvaluatorBase(OddPredicate, selector);
 
     /// <summary>
     /// Return a sum of all evens integers from an integer source collection
