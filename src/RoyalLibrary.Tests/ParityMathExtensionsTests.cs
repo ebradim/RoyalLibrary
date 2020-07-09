@@ -52,10 +52,9 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
-    public void TotalAllEvensReturnsValidOutput()
+    public void TotalAllEvens_ReturnsValidOutput_WhenHaveValidSource()
     {
       // Arrange
-
       // Act
       var output = Input.TotalAllEvens();
 
@@ -67,7 +66,6 @@ namespace RoyalLibrary.Tests
     public void TotalAllOddsReturnsValidOutput()
     {
       // Arrange
-
       // Act
       var output = Input.TotalAllOdds();
 
