@@ -9,6 +9,21 @@ namespace RoyalLibrary.Tests
   {
     private static readonly int[] Input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
 
+    #region ByteDecoder.RoyalLibrary.ParityMathExtensions Delegates Types
+
+    [Fact]
+    public void EvenPredicate_ReturnsTrue_WhenValueIsEven()
+    {
+      // Arrange
+      // Act
+      var result = ParityMathExtensions.EvenPredicate.Invoke(2);
+
+      // Assert
+      Assert.True(result);
+    }
+
+    #endregion
+    
     [Fact]
     public void Evens_ThrowsArgumentNullException_WhenSourceIsNull()
     {
