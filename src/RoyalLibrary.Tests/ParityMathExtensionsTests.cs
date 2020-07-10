@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ByteDecoder.RoyalLibrary;
+using RoyalLibrary.Tests.Factories;
 using Xunit;
 
 namespace RoyalLibrary.Tests
@@ -9,18 +10,6 @@ namespace RoyalLibrary.Tests
   public class ParityMathExtensionsTests
   {
     private static readonly int[] Input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
-
-    private class TestStruct
-    {
-      public TestStruct(string name, int age)
-      {
-        Name = name;
-        Age = age;
-      }
-
-      public string Name { get; private set; }
-      public int Age { get; private set; }
-    }
 
     #region ByteDecoder.RoyalLibrary.ParityMathExtensions Delegates Types
 
@@ -74,12 +63,38 @@ namespace RoyalLibrary.Tests
     public void EvaluatorBase_ThrowsArgumentNullException_WhenSourceIsNull()
     {
       // Arrange
-      IEnumerable<TestStruct> persons = null;
+      IEnumerable<TestPerson> persons = null;
 
       // Act
       // Assert
       Assert.Throws<ArgumentNullException>(() =>
-        persons.EvaluatorBase((Func<int, bool>)null, (Func<TestStruct, int>)null)
+        persons.EvaluatorBase((Func<int, bool>)null, (Func<TestPerson, int>)null)
+        .Count());
+    }
+
+    [Fact]
+    public void EvaluatorBase_ThrowsArgumentNullException_WhenEvaluatorPredicateIsNull()
+    {
+      // Arrange
+      var persons = new TestPersonFactory().CreatePersons();
+
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() =>
+        persons.EvaluatorBase((Func<int, bool>)null, (Func<TestPerson, int>)null)
+        .Count());
+    }
+
+    [Fact]
+    public void EvaluatorBase_ThrowsArgumentNullException_WhenEvaluatorSelectorIsNull()
+    {
+      // Arrange
+      var persons = new TestPersonFactory().CreatePersons();
+
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() =>
+        persons.EvaluatorBase(ParityMathExtensions.EvenPredicate, (Func<TestPerson, int>)null)
         .Count());
     }
 
