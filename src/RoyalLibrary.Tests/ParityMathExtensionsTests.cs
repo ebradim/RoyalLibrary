@@ -99,6 +99,20 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
+    public void EvaluatorBase_ReturnsTotalElements_WhenParamsAreCorrect()
+    {
+      // Arrange
+      var persons = new TestPersonFactory().CreatePersons();
+
+      // Act
+      var result = persons.EvaluatorBase(ParityMathExtensions.EvenPredicate, p => p.Age)
+                          .Count();
+
+      // Assert
+      Assert.Equal(1, result);
+    }
+
+    [Fact]
     public void Evens_ThrowsArgumentNullException_WhenSourceIsNull()
     {
       // Arrange 

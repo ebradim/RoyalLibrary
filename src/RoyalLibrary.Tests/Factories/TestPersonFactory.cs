@@ -18,7 +18,8 @@ namespace RoyalLibrary.Tests.Factories
   {
     public IEnumerable<TestPerson> CreatePersons() => new List<TestPerson> {
         new TestPerson { Name = "Lucas", Age = 23 },
-        new TestPerson { Name = "Samantha", Age = 25 }
+        new TestPerson { Name = "Samantha", Age = 25 },
+        new TestPerson { Name = "Solarium", Age = 32 }
       };
   }
 }
