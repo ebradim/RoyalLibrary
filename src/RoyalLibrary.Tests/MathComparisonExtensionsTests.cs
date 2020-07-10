@@ -2,7 +2,7 @@ using Xunit;
 
 namespace RoyalLibrary.Tests
 {
-  public class ComparisonExtensionsTests
+  public class MathComparisonExtensionsTests
   {
     [Fact]
     public void IsGreaterThan_ReturnsValidResult_WhenHaveValidInput()

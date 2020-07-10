@@ -3,7 +3,7 @@ namespace RoyalLibrary
   /// <summary>
   /// 
   /// </summary>
-  public static class ComparisonExtensions
+  public static class MathComparisonExtensions
   {
     /// <summary>
     /// Integer extension method for Greater Than 
