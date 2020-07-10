@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ByteDecoder.RoyalLibrary;
+using RoyalLibrary.Tests.Factories;
 using Xunit;
 
 namespace RoyalLibrary.Tests
@@ -40,6 +41,17 @@ namespace RoyalLibrary.Tests
       // Assert
       Assert.Equal(new[] { 2, 4, 6, 8, 10, 12, 14, 16, 20, 688, 1_134, 696 }, output);
       Assert.Equal(2610, output.Sum());
+    }
+
+    [Fact]
+    public void MaxElement_ThrowsArgumentNullException_WhenSourceIsNull()
+    {
+      // Arrange 
+      IEnumerable<TestPerson> source = null;
+
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => source.MaxElement((Func<TestPerson, int>)null));
     }
   }
 }
