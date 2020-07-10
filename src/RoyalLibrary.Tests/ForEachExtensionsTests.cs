@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ByteDecoder.RoyalLibrary;
@@ -14,6 +15,16 @@ namespace RoyalLibrary.Tests
     public ForEachExtensionsTests()
     {
       _fakeLogger = new FakeLogger();
+    }
+
+    [Fact]
+    public void ForEach_ThrowsArgumentNullException_WhenSourceIsNull()
+    {
+      // Arrange
+      IEnumerable<string> words = null;
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => words.ForEach(word => _fakeLogger.Log(word)));
     }
 
     [Fact]
