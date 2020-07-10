@@ -53,5 +53,17 @@ namespace RoyalLibrary.Tests
       // Assert
       Assert.Throws<ArgumentNullException>(() => source.MaxElement((Func<TestPerson, int>)null));
     }
+
+    [Fact]
+    public void MaxElement_ThrowsArgumentNullException_WhenSelectorIsNull()
+    {
+      // Arrange 
+      var persons = new TestPersonFactory().CreatePersons();
+
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => persons.MaxElement((Func<TestPerson, int>)null));
+    }
+
   }
 }
