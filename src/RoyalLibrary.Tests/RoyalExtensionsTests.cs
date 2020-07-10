@@ -65,5 +65,19 @@ namespace RoyalLibrary.Tests
       Assert.Throws<ArgumentNullException>(() => persons.MaxElement((Func<TestPerson, int>)null));
     }
 
+    [Fact]
+    public void MaxElement_ReturnsValidOutput_WhenInputsAreCorrect()
+    {
+      // Arrange 
+      var persons = new TestPersonFactory().CreatePersons();
+
+      // Act
+      var result = persons.MaxElement(person => person.Age);
+
+      // Assert
+      var maxPerson = persons.LastOrDefault();
+      Assert.Equal(result, maxPerson);
+      Assert.Equal(32, maxPerson.Age);
+    }
   }
 }
