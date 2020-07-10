@@ -21,13 +21,13 @@ namespace RoyalLibrary.Tests
     public void IsGreaterThan_ReturnsFalse_WhenIsNotGreater()
     {
       // Arrange
-      var number = 123;
+      var number = 1;
 
       // Act
       var result = number.IsGreaterThan(12);
 
       // Assert
-      Assert.True(result);
+      Assert.False(result);
     }
 
     [Fact]
@@ -42,5 +42,19 @@ namespace RoyalLibrary.Tests
       // Assert
       Assert.True(result);
     }
+
+    [Fact]
+    public void IsLessThan_ReturnsFalse_WhenIsNotLess()
+    {
+      // Arrange
+      var number = 123;
+
+      // Act
+      var result = number.IsLessThan(12);
+
+      // Assert
+      Assert.False(result);
+    }
+
   }
 }
