@@ -119,11 +119,23 @@ namespace RoyalLibrary.Tests
       var persons = new TestPersonFactory().CreatePersons();
 
       // Act
-      var result = persons.ParityEvaluator(ParityMathExtensions.EvenPredicate, p => p.Age)
-                          .Count();
+      var result = persons.Evens(person => person.Age).Count();
 
       // Assert
       Assert.Equal(1, result);
+    }
+
+    [Fact]
+    public void OddsWithGenericType_ReturnsTotalElements_WhenParamsAreCorrect()
+    {
+      // Arrange
+      var persons = new TestPersonFactory().CreatePersons();
+
+      // Act
+      var result = persons.Odds(person => person.Age).Count();
+
+      // Assert
+      Assert.Equal(2, result);
     }
 
     [Fact]
