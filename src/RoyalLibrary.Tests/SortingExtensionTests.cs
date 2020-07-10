@@ -6,23 +6,23 @@ using Xunit;
 
 namespace RoyalLibrary.Tests
 {
-
   public class SortingExtensionTests
   {
     [Fact]
     public async void RoyalSortLastAsync_ThrowArgumentNullException_WhenSourceIsNull()
     {
-        // Arrange
-        IList<string> words = null;
+      // Arrange
+      IList<string> words = null;
 
-        // Act
-        // Assert
+      // Act
+      // Assert
       await Assert.ThrowsAsync<ArgumentNullException>(() => words.RoyalSortLastAsync());
     }
 
     [Fact]
     public async void RoyalSortLastAsync_ReturnsTheRightSortedList_WhenCorrectSourceIsProvided()
     {
+      // Arrange
       var unSortedlist = new List<string>()
             {
                 "Ai Bi Bu",
@@ -40,8 +40,11 @@ namespace RoyalLibrary.Tests
                 "Na Za",
 
             };
+
+      // Act
       var actual = await unSortedlist.RoyalSortLastAsync();
 
+      // Assert
       Assert.True(expected[1] == actual.ElementAt(1));
     }
   }

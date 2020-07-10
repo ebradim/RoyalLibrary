@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using ByteDecoder.RoyalLibrary;
 using Xunit;
@@ -9,7 +11,18 @@ namespace RoyalLibrary.Tests
     private static readonly int[] Input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 344, 567, 348 };
 
     [Fact]
-    public void MapReturnsValidOutput()
+    public void Map_ThrowsArgumentNullException_WhenSourceIsNull()
+    {
+      // Arrange 
+      IEnumerable<int> source = null;
+
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => source.Map(n => n + 1).Count());
+    }
+
+    [Fact]
+    public void Map_ReturnsValidOutput()
     {
       // Arrange 
 
