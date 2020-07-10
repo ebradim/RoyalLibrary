@@ -146,5 +146,18 @@ namespace RoyalLibrary.Tests
       // Assert
       Assert.False(result);
     }
+
+    [Fact]
+    public void IsLessThanOrEqualTo_ReturnsTrue_WhenIsLess()
+    {
+      // Arrange
+      var number = 122;
+
+      // Act
+      var result = number.IsLessThanOrEqualTo(123);
+
+      // Assert
+      Assert.True(result);
+    }
   }
 }
