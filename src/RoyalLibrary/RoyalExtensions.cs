@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ByteDecoder.RoyalLibrary
 {
@@ -9,29 +8,15 @@ namespace ByteDecoder.RoyalLibrary
   /// </summary>
   public static class RoyalExtensions
   {
-    #region Comparision Utilities 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="i"></param>
-    /// <param name="value"></param>
-    /// <returns></returns>
-    public static bool IsGreaterThan(this int i, int value) => i > value;
-
-    #endregion
-
-    #region Enumerables
-
-
     /// <summary>
     /// Deferred execution returnning a LINQ sequence of elements, after applying the selector on each sequence element
     /// </summary>
-    /// <typeparam name="T">Element type</typeparam>
+    /// <typeparam name="TInput">Element type</typeparam>
     /// <typeparam name="TResult">Result data type</typeparam>
     /// <param name="source">Input LINQ sequence</param>
     /// <param name="selector">Applied action to transform each collection element</param>
     /// <returns></returns>
-    public static IEnumerable<TResult> Map<T, TResult>(this IEnumerable<T> source, Func<T, TResult> selector)
+    public static IEnumerable<TResult> Map<TInput, TResult>(this IEnumerable<TInput> source, Func<TInput, TResult> selector)
     {
       if (source == null)
         throw new ArgumentNullException(nameof(source));
@@ -76,6 +61,5 @@ namespace ByteDecoder.RoyalLibrary
       }
       return result;
     }
-    #endregion
   }
 }

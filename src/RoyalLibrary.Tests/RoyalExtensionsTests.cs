@@ -20,18 +20,5 @@ namespace RoyalLibrary.Tests
       Assert.Equal(new[] { 2, 4, 6, 8, 10, 12, 14, 16, 20, 688, 1_134, 696 }, output);
       Assert.Equal(2610, output.Sum());
     }
-
-    [Fact]
-    public void IsGreaterThan_ReturnsValidResult_WhenHaveValidInput()
-    {
-      // Arrange
-      var number = 123;
-
-      // Act
-      var result = number.IsGreaterThan(12);
-
-      // Assert
-      Assert.True(result);
-    }
   }
 }
