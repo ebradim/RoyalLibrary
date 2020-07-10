@@ -28,6 +28,15 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
+    public void ForEach_ThrowsArgumentNullException_WhenActionIsNull()
+    {
+      // Arrange
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => _words.ForEach((Action<string>)null));
+    }
+
+    [Fact]
     public void ForEach_ReturnsValidOutput_WhenSourceIsValid()
     {
       // Arrange
