@@ -1,3 +1,7 @@
+### 1.4.0 - TBD
+  * Added more utility extensions methods to ComparisonExtensions class
+  * Added new sort LINQ query operators in SortingExtensions class
+
 ### 1.3.0 - 2020-07-06
   * Added IQueryable<T> Page<T>(this IQueryable<T> query, int pageNumZeroStart, int pageSize)
 
