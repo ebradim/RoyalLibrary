@@ -133,5 +133,18 @@ namespace RoyalLibrary.Tests
       // Assert
       Assert.True(result);
     }
+
+    [Fact]
+    public void IsGreaterThanOrEqualTo_ReturnsFalse_WhenIsNotGreaterOrEqual()
+    {
+      // Arrange
+      var number = 122;
+
+      // Act
+      var result = number.IsGreaterThanOrEqualTo(123);
+
+      // Assert
+      Assert.False(result);
+    }
   }
 }
