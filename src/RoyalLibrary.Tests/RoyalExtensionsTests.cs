@@ -22,6 +22,15 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
+    public void Map_ThrowsArgumentNullException_WhenElementIsNull()
+    {
+      // Arrange 
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() => Input.Map((Func<int, int>)null).Count());
+    }
+
+    [Fact]
     public void Map_ReturnsValidOutput()
     {
       // Arrange 

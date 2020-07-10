@@ -14,19 +14,19 @@ namespace ByteDecoder.RoyalLibrary
     /// <typeparam name="TInput">Element type</typeparam>
     /// <typeparam name="TResult">Result data type</typeparam>
     /// <param name="source">Input LINQ sequence</param>
-    /// <param name="selector">Applied action to transform each collection element</param>
+    /// <param name="element">Applied action to transform each collection element</param>
     /// <returns></returns>
-    public static IEnumerable<TResult> Map<TInput, TResult>(this IEnumerable<TInput> source, Func<TInput, TResult> selector)
+    public static IEnumerable<TResult> Map<TInput, TResult>(this IEnumerable<TInput> source, Func<TInput, TResult> element)
     {
       if (source == null)
         throw new ArgumentNullException(nameof(source));
 
-      if (selector == null)
-        throw new ArgumentNullException(nameof(selector));
+      if (element == null)
+        throw new ArgumentNullException(nameof(element));
 
-      foreach (var element in source)
+      foreach (var item in source)
       {
-        yield return selector(element);
+        yield return element(item);
       }
     }
 
