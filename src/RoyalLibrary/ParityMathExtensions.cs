@@ -41,7 +41,7 @@ namespace ByteDecoder.RoyalLibrary
     /// <param name="selector"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static IEnumerable<T> EvaluatorBase<T>(this IEnumerable<T> source, Func<int, bool> evaluatorPredicate, Func<T, int> selector)
+    public static IEnumerable<T> ParityEvaluator<T>(this IEnumerable<T> source, Func<int, bool> evaluatorPredicate, Func<T, int> selector)
     {
       if (source == null)
         throw new ArgumentNullException(nameof(source));
@@ -67,7 +67,7 @@ namespace ByteDecoder.RoyalLibrary
     /// <param name="selector"></param>
     /// <returns></returns>
     public static IEnumerable<T> Evens<T>(this IEnumerable<T> source, Func<T, int> selector) =>
-      source.EvaluatorBase(EvenPredicate, selector);
+      source.ParityEvaluator(EvenPredicate, selector);
 
     /// <summary>
     /// Deferred Execution
@@ -76,7 +76,7 @@ namespace ByteDecoder.RoyalLibrary
     /// <param name="selector"></param>
     /// <returns></returns>
     public static IEnumerable<T> Odds<T>(this IEnumerable<T> source, Func<T, int> selector) =>
-      source.EvaluatorBase(OddPredicate, selector);
+      source.ParityEvaluator(OddPredicate, selector);
 
     /// <summary>
     /// Return a sum of all evens integers from an integer source collection

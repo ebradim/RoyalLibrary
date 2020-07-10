@@ -68,7 +68,7 @@ namespace RoyalLibrary.Tests
       // Act
       // Assert
       Assert.Throws<ArgumentNullException>(() =>
-        persons.EvaluatorBase((Func<int, bool>)null, (Func<TestPerson, int>)null)
+        persons.ParityEvaluator((Func<int, bool>)null, (Func<TestPerson, int>)null)
         .Count());
     }
 
@@ -81,7 +81,7 @@ namespace RoyalLibrary.Tests
       // Act
       // Assert
       Assert.Throws<ArgumentNullException>(() =>
-        persons.EvaluatorBase((Func<int, bool>)null, (Func<TestPerson, int>)null)
+        persons.ParityEvaluator((Func<int, bool>)null, (Func<TestPerson, int>)null)
         .Count());
     }
 
@@ -94,7 +94,7 @@ namespace RoyalLibrary.Tests
       // Act
       // Assert
       Assert.Throws<ArgumentNullException>(() =>
-        persons.EvaluatorBase(ParityMathExtensions.EvenPredicate, (Func<TestPerson, int>)null)
+        persons.ParityEvaluator(ParityMathExtensions.EvenPredicate, (Func<TestPerson, int>)null)
         .Count());
     }
 
@@ -105,7 +105,7 @@ namespace RoyalLibrary.Tests
       var persons = new TestPersonFactory().CreatePersons();
 
       // Act
-      var result = persons.EvaluatorBase(ParityMathExtensions.EvenPredicate, p => p.Age)
+      var result = persons.ParityEvaluator(ParityMathExtensions.EvenPredicate, p => p.Age)
                           .Count();
 
       // Assert
