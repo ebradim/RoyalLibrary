@@ -31,10 +31,9 @@ namespace RoyalLibrary.Tests
     }
 
     [Fact]
-    public void Map_ReturnsValidOutput()
+    public void Map_ReturnsValidOutput_WhenInputsAreCorrect()
     {
       // Arrange 
-
       // Act
       var output = Input.Map(number => number * 2).ToArray();
 
