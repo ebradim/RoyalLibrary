@@ -81,5 +81,18 @@ namespace RoyalLibrary.Tests
       // Assert
       Assert.False(result);
     }
+
+    [Fact]
+    public void IsNotEqualTo_ReturnsTrue_WhenIsNotEqual()
+    {
+      // Arrange
+      var number = 1234;
+
+      // Act
+      var result = number.IsNotEqualTo(123);
+
+      // Assert
+      Assert.True(result);
+    }
   }
 }
