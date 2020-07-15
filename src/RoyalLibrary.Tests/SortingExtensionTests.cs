@@ -6,24 +6,24 @@ using Xunit;
 
 namespace RoyalLibrary.Tests
 {
-  public class SortingExtensionTests
-  {
-    [Fact]
-    public async void RoyalSortLastAsync_ThrowArgumentNullException_WhenSourceIsNull()
+    public class SortingExtensionTests
     {
-      // Arrange
-      IList<string> words = null;
+        [Fact]
+        public async void RoyalSortLastAsync_ThrowArgumentNullException_WhenSourceIsNull()
+        {
+            // Arrange
+            IList<string> words = null;
 
-      // Act
-      // Assert
-      await Assert.ThrowsAsync<ArgumentNullException>(() => words.RoyalSortLastAsync());
-    }
+            // Act
+            // Assert
+            await Assert.ThrowsAsync<ArgumentNullException>(() => words.SortByLastNameAsync());
+        }
 
-    [Fact]
-    public async void RoyalSortLastAsync_ReturnsTheRightSortedList_WhenCorrectSourceIsProvided()
-    {
-      // Arrange
-      var unSortedlist = new List<string>()
+        [Fact]
+        public async void RoyalSortLastAsync_ReturnsTheRightSortedList_WhenCorrectSourceIsProvided()
+        {
+            // Arrange
+            var unSortedlist = new List<string>()
             {
                 "Ai Bi Bu",
                 "Ai Bi Az",
@@ -31,7 +31,7 @@ namespace RoyalLibrary.Tests
                 "Xa Ma Co",
                 "AA bb"
             };
-      var expected = new List<string>()
+            var expected = new List<string>()
             {
                 "Ai Bi Az",
                 "AA bb",
@@ -41,11 +41,11 @@ namespace RoyalLibrary.Tests
 
             };
 
-      // Act
-      var actual = await unSortedlist.RoyalSortLastAsync();
+            // Act
+            var actual = await unSortedlist.SortByLastNameAsync();
 
-      // Assert
-      Assert.True(expected[1] == actual.ElementAt(1));
+            // Assert
+            Assert.True(expected[1] == actual.ElementAt(1));
+        }
     }
-  }
 }

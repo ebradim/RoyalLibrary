@@ -1,14 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>ByteDecoder.RoyalLibrary</RootNamespace>
-
     <Authors>ByteDecoder</Authors>
-    <Company />
+    <Company/>
     <PackageId>ByteDecoder.RoyalLibrary</PackageId>
     <Title>ByteDecoder.RoyalLibrary</Title>
-
     <Description>Collection of useful LINQ query operators</Description>
     <copyright>Copyright (c) 2020 released under the MIT license</copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -22,12 +19,13 @@
     <PackageProjectUrl>https://github.com/ByteDecoder/RoyalLibrary</PackageProjectUrl>
     <Summary>Collection of useful LINQ query operators</Summary>
   </PropertyGroup>
-
   <ItemGroup>
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
-      <PackagePath></PackagePath>
+      <PackagePath/>
     </None>
   </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0"/>
+  </ItemGroup>
 </Project>
